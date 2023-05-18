@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+    <title> List Pertandingan Tim</title>
+    <style>
+        .page-title{
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-family: Playfair Display;
+            font-size: 20pt;
+        }
+        .list-pertandingan{
+            border-collapse: collapse;
+            width: 100%;    
+            font-family:Playfair Display;      
+            border-radius: 15px;
+            overflow:hidden;
+            box-shadow: 4px 4px 7px #922724;
+              
+        }
+        .list-pertandingan th,
+        .list-pertandingan td {
+            border: 0.5px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        .list-pertandingan thead {
+            background-color: #922724;
+            color:#f2f2f2;
+            font-size: 15pt;
+        }
+        .list-pertandingan tbody {
+            background-color: #f2f2f2;
+            color:#91A3B0;
+            font-size: 12pt;
+        }
+    </style>
+</head>
+{% endblock meta %}
+
+{% block content %}
+<body>
+    <h1 class="page-title"> List Pertandingan Tim</h1>
+    <table class="list-pertandingan">
+        <thead>
+            <tr>
+                <th>Tim Bertanding</th>
+                <th>Stadium</th>
+                <th>Tanggal dan Waktu</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>[Nama Tim Bertanding]</th>
+                <th>[Nama Stadium]</th>
+                <th>[Tanggal dan Waktu]</th>
+            </tr>
+            <tr>
+                <th>[Nama Tim Bertanding]</th>
+                <th>[Nama Stadium]</th>
+                <th>[Tanggal dan Waktu]</th>
+            </tr>
+        </tbody>
+    </table>
+</body>
+{% endblock content %}

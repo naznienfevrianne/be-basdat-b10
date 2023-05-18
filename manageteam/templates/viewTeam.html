@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Babadu | Login</title>
+{% endblock meta %}
+
+{% block content %}
+
+<section id="authentication-login" class="w-full xl:px-20 lg:px-10 sm:px-2 px-4 py-5 text-white">
+    <div class="flex-col items-center justify-center">
+        <section id="b01" class="w-full">
+            <div class="max-w-md mx-auto p-4">
+              <div class="text-start text-shark-500">
+                <h1 style="font-family:Mulish; font-size:15pt; color:bg-primary-500; text-align:center">Basis Data B10</h1>
+                <h1 style="font-family:Playfair Display; font-size:20pt; color:bg-primary-500; text-align:center">U-League Indonesian Universities Football Championship</h1>
+              </div>
+        </section>
+        <div class="w-full md:w-4/6 my-6 mx-auto h-auto  border-shark-500 rounded-lg">
+        </div>
+    </div>
+</section>
+<h1 style="font-family:Mulish; font-size:20pt; color:black; text-align:center">Tim</h1>
+<h2 style="font-family:Mulish; font-size:15pt; color:black; text-align:center">PEMAIN</h2>
+<br>
+<table class="w-full text-sm text-left text-primary-500 dark:text-primary-400">
+    <thead class="text-xs text-primary-500 uppercase bg-primary-50 dark:bg-primary-500 dark:text-primary-400">
+        <tr>
+            <th scope="col" class="px-6 py-3">
+                Nama Pemain
+            </th>
+            <th scope="col" class="px-6 py-3">
+                No HP
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Tanggal Lahir
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Is Captain
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Posisi
+            </th>
+            <th scope="col" class="px-6 py-3">
+                NPM
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Jenjang
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Andi
+            </th>
+            <td class="px-6 py-4">
+                081111111111
+            </td>
+            <td class="px-6 py-4">
+                01-01-2003
+            </td>
+            <td class="px-6 py-4">
+                True
+            </td>
+            <td class="px-6 py-4">
+                Striker
+            </td>
+            <td class="px-6 py-4">
+                21000000
+            </td>
+            <td class="px-6 py-4">
+                dummy
+            </td>
+            <td class="px-6 py-4">
+                <button class="bg-primary-500 hover:bg-primary-400 text-white font-bold py-2 px-4 rounded">
+                    Make Captain
+                  </button>
+                  <button class="bg-primary-500 hover:bg-primary-400 text-white font-bold py-2 px-4 rounded">
+                    Delete
+                  </button>
+            </td>
+        </tr>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Budi
+            </th>
+            <td class="px-6 py-4">
+                082222222222
+            </td>
+            <td class="px-6 py-4">
+                02-02-2003
+            </td>
+            <td class="px-6 py-4">
+                False
+            </td>
+            <td class="px-6 py-4">
+                Midfielder
+            </td>
+            <td class="px-6 py-4">
+                2111111111
+            </td>
+            <td class="px-6 py-4">
+                dummy
+            </td>
+            <td class="px-6 py-4">
+                <button class="bg-primary-500 hover:bg-primary-400 text-white font-bold py-2 px-4 rounded">
+                    Make Captain
+                  </button>
+                  <button class="bg-primary-500 hover:bg-primary-400 text-white font-bold py-2 px-4 rounded">
+                    Delete
+                  </button>
+            </td>
+        </tr>
+        <tr class="bg-white dark:bg-gray-800">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Charlie
+            </th>
+            <td class="px-6 py-4">
+                0833333333
+            </td>
+            <td class="px-6 py-4">
+                03-03-2003
+            </td>
+            <td class="px-6 py-4">
+                False
+            </td>
+            <td class="px-6 py-4">
+                Goalkeeper
+            </td>
+            <td class="px-6 py-4">
+                2122222222
+            </td>
+            <td class="px-6 py-4">
+                dummy
+            </td>
+            <td class="px-6 py-4">
+                <button class="bg-primary-500 hover:bg-primary-400 text-white font-bold py-2 px-4 rounded">
+                    Make Captain
+                  </button>
+                  <button class="bg-primary-500 hover:bg-primary-400 text-white font-bold py-2 px-4 rounded">
+                    Delete
+                  </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br><br>
+<h2 style="font-family:Mulish; font-size:15pt; color:black; text-align:center">PELATIH</h2>
+<br>
+<table class="w-full text-sm text-left text-primary-500 dark:text-primary-400">
+    <thead class="text-xs text-primary-500 uppercase bg-primary-50 dark:bg-primary-500 dark:text-primary-400">
+        <tr>
+            <th scope="col" class="px-6 py-3">
+                Nama Pelatih
+            </th>
+            <th scope="col" class="px-6 py-3">
+                No HP
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Email
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Alamat
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Spesialisasi
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Andi 
+            </th>
+            <td class="px-6 py-4">
+                081111111111
+            </td>
+            <td class="px-6 py-4">
+                01-01-2003
+            </td>
+            <td class="px-6 py-4">
+                Depok
+            </td>
+            <td class="px-6 py-4">
+                Striker
+            </td>
+        
+            <td class="px-6 py-4">
+                
+                  <button class="bg-primary-500 hover:bg-primary-400 text-white font-bold py-2 px-4 rounded">
+                    Delete
+                  </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<h1 style="font-family:Mulish; font-size:20pt; color:bg-primary-500; text-align:center">Tambah</h1>
+<section id="buttons" class="w-1000">
+    <div class="max-w-lg mx-auto space-y-2 text-white text-lg font-semibold">
+      {% comment %} <a href="{% url 'authentication:login' %}"> {% endcomment %}
+        <button class="bg-primary-500 w-full py-2 rounded-lg hover:bg-primary-400 transition cursor-pointer">
+            Pemain
+        </button>
+      {% comment %} </a> {% endcomment %}
+      <div class="grid grid-cols-7 items-center text-shark-400">
+        <hr class="border-shark-400 col-span-3">
+        <div class="text-xs col-span-1">
+            or
+        </div>
+        <hr class="border-shark-400 col-span-3">
+    </div>
+      {% comment %} <a href="{% url 'authentication:register' %}"> {% endcomment %}
+        <button class="bg-primary-500 w-full py-2 rounded-lg hover:bg-primary-400 transition cursor-pointer">
+            Pelatih
+        </button>
+      {% comment %} </a> {% endcomment %}
+    </div>
+</section>
+<br><br>
+
+
+{% endblock content %}

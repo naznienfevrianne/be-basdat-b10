@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>U-League | B10</title>
+<link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Mulish' rel='stylesheet'>
+<style>
+</style>
+{% endblock meta %}
+
+{% block content %}
+
+<section id="authentication" class="h-screen w-full xl:px-20 lg:px-10 sm:px-2 px-4">
+    <div class="h-full flex flex-col gap-8 items-center justify-center text-white text-center">
+        <section id="b01" class="w-full">
+            <div class="max-w-md mx-auto p-4">
+              <div class="text-start text-shark-500">
+                <h1 style="font-family:Mulish; font-size:15pt; color:bg-primary-500; text-align:center">Basis Data B10</h1>
+                <h1 style="font-family:Playfair Display; font-size:20pt; color:bg-primary-500; text-align:center">U-League Indonesian Universities Football Championship</h1>
+              </div>
+        </section>
+        <h1 style="font-family:Mulish; font-size:18pt; color:black; text-align:center">INI AKHIR MUSIM!</h1>
+        <h1 style="font-family:Mulish; font-size:15pt; color:black; text-align:center">KLIK TOMBOL NEXT UNTUK MEMBUAT PERTANDINGAN BARU!</h1>
+        <section id="buttons" class="w-full">
+            
+            <div class="max-w-lg mx-auto space-y-2 text-white text-lg font-semibold">
+              <a href="{% url 'authentication:registerManajer' %}">
+                <button class="bg-primary-500 w-full py-2 rounded-lg hover:bg-primary-400 transition cursor-pointer">
+                    NEXT
+                </button>
+              </a>
+              
+            </div>
+        </section>
+        <section class="h-4" />
+    </div>
+</section>
+
+{% endblock content %}

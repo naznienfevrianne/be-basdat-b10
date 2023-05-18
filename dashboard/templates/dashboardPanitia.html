@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Babadu | Login</title>
+{% endblock meta %}
+
+{% block content %}
+<br><br><br><br>
+<section id="authentication-login" class="h-screen w-full xl:px-20 lg:px-10 sm:px-2 px-4 py-16 text-white">
+    <div class="h-full flex flex-col items-center justify-center">
+        <section id="b01" class="w-full">
+            <div class="max-w-md mx-auto p-4">
+              <div class="text-start text-shark-500">
+                <h1 style="font-family:Mulish; font-size:15pt; color:bg-primary-500; text-align:center">Basis Data B10</h1>
+                <h1 style="font-family:Playfair Display; font-size:20pt; color:bg-primary-500; text-align:center">U-League Indonesian Universities Football Championship</h1>
+              </div>
+        </section>
+        <div class="w-full md:w-4/6 my-6 mx-auto h-auto p-4 border border-shark-500 rounded-lg">
+            <form method="POST" action="" class="w-full flex flex-col gap-4">
+                <div class="text-2xl font-semibold text-primary-500 text-center">
+                    Dashboard Panitia
+                </div>
+                <hr class="border-shark-400">
+                {% csrf_token %}
+                <section id="auth-login-input" class="space-y-2">
+                    <div class="flex flex-col gap-2">
+                        <div class="text-black font-semibold">
+                            Nama Depan: {nama_depan}
+                        </div>
+                       
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="text-black font-semibold">
+                            Nama Belakang: {nama_belakang}
+                        </div>
+                
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="text-black font-semibold">
+                            Nomor HP: {nomor_hp}
+                        </div>
+                        
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="text-black font-semibold">
+                            Email: {email}
+                        </div>
+                        
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="text-black font-semibold">
+                            Alamat: {alamat}
+                        </div>
+                        
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="text-black font-semibold">
+                            Status: {status}
+                        </div>
+                        
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="text-black font-semibold">
+                            Jabatan: {jabatan}
+                        </div>
+                        
+                    </div>
+                </section>       
+        </div>
+        <h1 style="font-family:Mulish; font-size:20pt; color:#922B21; text-align:center; font-weight:bold">Daftar Rapat yang akan Datang</h1>
+        <br>
+        <section id="b01" class="w-full">
+            <div class="max-w-md mx-auto p-4 border border-shark-900 rounded-lg">
+                <div class="flex flex-row items-center justify-start gap-4">
+                    <div class="text-start text-shark-400">
+                        <h2 class="text-grey font-semibold">~Tanggal Rapat~</h2>
+                        <h4 class="text-grey">=Nama Pertandingan Rapat=</h4>
+                        <h4 class="text-grey">=ID Manajer 1=</h4>
+                        <h4 class="text-grey">=ID Manajer 2=</h4>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+        <section id="b01" class="w-full">
+            <div class="max-w-md mx-auto p-4 border border-shark-900 rounded-lg">
+                <div class="flex flex-row items-center justify-start gap-4">
+                    <div class="text-start text-shark-400">
+                        <h2 class="text-grey font-semibold">~Tanggal Rapat~</h2>
+                        <h4 class="text-grey">=Nama Pertandingan Rapat=</h4>
+                        <h4 class="text-grey">=ID Manajer 1=</h4>
+                        <h4 class="text-grey">=ID Manajer 2=</h4>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+    </div>
+</section>
+
+{% endblock content %}

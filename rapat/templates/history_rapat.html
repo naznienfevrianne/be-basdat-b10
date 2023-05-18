@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+    <title> History Rapat </title>
+    <style>
+        .page-title{
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-family: Playfair Display;
+            font-size: 20pt;
+        }
+        .history-rapat{
+            border-collapse: collapse;
+            width: 100%;    
+            font-family:Playfair Display;      
+            border-radius: 15px;
+            overflow:hidden;
+            box-shadow: 4px 4px 7px #922724;
+              
+        }
+        .history-rapat th,
+        .history-rapat td {
+            border: 0.5px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        .history-rapat thead {
+            background-color: #922724;
+            color:#f2f2f2;
+            font-size: 15pt;
+        }
+        .history-rapat tbody {
+            background-color: #f2f2f2;
+            color:#91A3B0;
+            font-size: 12pt;
+        }
+        .link{
+            color:#2596D1;
+        }
+    </style>
+</head>
+{% endblock meta %}
+
+{% block content %}
+<body>
+    <h1 class="page-title"> History Rapat</h1>
+    <table class="history-rapat">
+        <thead>
+            <tr>
+                <th>Rapat Tim</th>
+                <th>Nama Panitia</th>
+                <th>Stadium</th>
+                <th>Tanggal dan Waktu</th>
+                <th>Action </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>[Rapat Tim]</th>
+                <th>[Nama Panitia]</th>
+                <th>[Stadium]</th>
+                <th>[Tanggal dan Waktu]</th>
+                <th><a class="link" href="https://example.com"><u>Lihat Catatan Rapat</u></a></th>
+            </tr>
+            <tr>
+            </tr>
+        </tbody>
+    </table>
+</body>
+{% endblock content %}
