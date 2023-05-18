@@ -43,9 +43,7 @@ INSTALLED_APPS = [
     'authentication',
     'dashboard',
     'manageteam', 
-    'peminjamanstadium',
     'managepertandingan',
-    'peminjamanstadium'
     'peminjamanstadium',
     'list_pertandingan',
     'rapat'
