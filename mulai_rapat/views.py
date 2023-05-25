@@ -141,36 +141,6 @@ def rapatPertandingan(request, chosen_rapat, nama_tim1, nama_tim2):
         except InternalError as e: 
             messages.info(request, str(e.args))
 
-    #query = f"""
-    #    SELECT DISTINCT ON (tp1.id_pertandingan) concat(tp1.nama_tim, ' vs ', tp2.nama_tim) as teams
-    #    FROM tim_pertandingan tp1
-    #    JOIN tim_pertandingan tp2
-    #    ON tp1.id_pertandingan = tp2.id_pertandingan
-    #    JOIN pertandingan p
-    #    ON tp2.id_pertandingan = p.id_pertandingan
-    #    JOIN stadium s
-    #    ON p.stadium = s.id_stadium
-    #    JOIN rapat r
-    #    ON r.id_pertandingan = '{chosen_rapat}'
-    #    JOIN panitia px
-    #    ON px.id_panitia = r.perwakilan_panitia
-    #    AND px.username = '{username}'
-    #"""
-#
-    #cursor = connection.cursor()
-    #cursor.execute('set search_path to public')
-    #cursor.execute(query)
-    #res = parse(cursor)
-    #matches = []
-    #for p in res:
-    #    detail = {}
-    #    for attr, value in p.items():
-    #        # Decode the fetched strings if needed
-    #        if isinstance(value, bytes):
-    #            value = value.decode()
-    #        detail[attr] = value
-    #    matches.append(detail)
-
     context = {
         'member_type': 'manajer',
         'tim1': nama_tim1,

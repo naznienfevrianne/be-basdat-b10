@@ -70,7 +70,7 @@ def pinjamStadium(request):
     context['stadium'] = stadium
     print(context)
    
-    return render(request, 'pinjamStadium.html', context)
+    return render(request, 'pinjamstadium.html', context)
 
 def pilihwaktu(request):
     
