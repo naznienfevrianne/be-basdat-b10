@@ -2,10 +2,17 @@
 {% load static %}
 
 {% block meta %}
-<title>Babadu | Login</title>
+<title>U-League | Manage Pertandingan</title>
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
 {% endblock meta %}
-
-{% block content %}
 
 <section id="authentication-login" class="w-full xl:px-20 lg:px-10 sm:px-2 px-4 py-5 text-white">
     <div class="flex-col items-center justify-center">
@@ -94,8 +101,6 @@
         <button class="bg-primary-500 w-full py-2 rounded-lg hover:bg-primary-400 transition cursor-pointer">
             Save
         </button>
-      {% comment %} </a> {% endcomment %}
-      
       {% comment %} </a> {% endcomment %}
     </div>
 </section>

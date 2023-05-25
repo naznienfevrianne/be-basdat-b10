@@ -2,11 +2,20 @@
 {% load static %}
 
 {% block meta %}
-<title>U-League | B10</title>
 <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Mulish' rel='stylesheet'>
 <style>
 </style>
+<title>U-League | Manage Pertandingan</title>
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
 {% endblock meta %}
 
 {% block content %}
@@ -33,7 +42,7 @@
               
             </div>
         </section>
-        <section class="h-4" />
+        <section class="h-4">
     </div>
 </section>
 
