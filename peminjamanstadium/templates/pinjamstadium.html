@@ -2,7 +2,16 @@
 {% load static %}
 
 {% block meta %}
-<title>Babadu | Login</title>
+<title>Beli Tiket</title>
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
 {% endblock meta %}
 
 {% block content %}
@@ -27,31 +36,41 @@
                         <div class="text-black font-semibold">
                             Stadium
                         </div>
-                        <select id="small" class="block w-full p-2 mb-6 text-sm text-primary-500 border border-white rounded-lg bg-white focus:ring-primary-400 focus:border-primary-400 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400">
-                        <option selected>Choose a stadium</option>
-                        <option value="US">[Nama Stadium 1]</option>
-                        <option value="CA">[Nama Stadium 2]<option>
-                        <option value="FR">[Nama Stadium 3]</option>
+                        <select id="chosen_stadium" name="chosen_stadium" class="block w-full p-2 mb-6 text-sm text-primary-500 border border-white rounded-lg bg-white focus:ring-primary-400 focus:border-primary-400 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400">
+                            <option selected >Pilih Stadium yang diinginkan</option>
+                            {% for s in stadium %}
+                            <option value="{{ s.nama }}" name="chosen_stadium">{{ s.nama }}</option>
+                            {% endfor %}
                         </select>  
                         <div class="text-black font-semibold">
                             Tanggal Peminjaman
                         </div>
                                         
-                <div class="relative max-w-sm">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg aria-hidden="true" class="w-5 h-5 text-primary-500 dark:text-primary-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-                </div>
-                <input datepicker datepicker-format="mm/dd/yyyy" type="text" class="bg-primary-500 border border-primary-500 text-primary-500 text-sm rounded-lg focus:ring-primary-400 focus:border-primary-400 block w-full pl-10 p-2.5  dark:bg-white dark:border-primary-500 dark:placeholder-primary-500 dark:text-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400" placeholder="Select date">
-                </div>
- 
-                    </div>
-                </section>
-                <section id="auth-login-submit" class="space-y-1 mt-">
-                    <button
-                        class="bg-primary-500 w-full py-2 rounded-lg hover:bg-primary-400 transition cursor-pointer text-white font-semibold"
-                        type="submit" value="Login">
-                        Submit
-                    </button>
+                        <style >
+                            /* Style the calendar input */
+                            input[type="date"] {
+                              border-radius: 10px; /* Rounded edges */
+                              color: #a22a2a; /* Dark text */
+                              padding: 8px; /* Add some padding to the input field */
+                              border-color: black;
+                              border-width: 0.5px;
+                              font-size:small;
+                            }
+                        </style>
+                        <div class="flex flex-col gap-2">
+                            
+                            <input type="date" id="date" name="date">
+                        </div>
+                    </section>
+                    <section id="auth-login-submit" class="space-y-1 mt-">
+                        <a href="pilihwaktu.html"> <button 
+                       
+                            class="bg-primary-500 w-full py-2 rounded-lg hover:bg-primary-400 transition cursor-pointer text-white font-semibold"
+                            type="submit" value="Login">
+                            Submit
+                        </button>
+                    </a>
+        
     
                 </section>
             </form>

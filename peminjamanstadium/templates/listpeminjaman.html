@@ -1,8 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block meta %}
-<title>Babadu | Login</title>
+{{% block meta %}
+<title>Beli Tiket</title>
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
 {% endblock meta %}
 
 {% block content %}
@@ -30,46 +39,34 @@
                 Stadium
             </th>
             <th scope="col" class="px-6 py-3">
-                Waktu
+                Waktu 
             </th>
+           
         </tr>
     </thead>
     <tbody>
+        {% for bor in borrow %}
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                [Nama Stadium]
+                {{bor.stadium}}
             </th>
             <td class="px-6 py-4">
-                [Waktu Peminjaman]
-            </td>
-            
-        </tr>
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                [Nama Stadium]
-            </th>
-            <td class="px-6 py-4">
-                [Waktu Peminjaman]
+                {{bor.waktu}}
             </td>
         </tr>
-        <tr class="bg-white dark:bg-gray-800">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                [Nama Stadium]
-            </th>
-            <td class="px-6 py-4">
-                [Waktu Peminjaman]
-            </td>
-        </tr>
+        {% endfor %} 
     </tbody>
 </table>
+
 <br>
 <br>
 <section id="buttons" class="w-1000">
     <div class="max-w-lg mx-auto space-y-2 text-white text-lg font-semibold">
       {% comment %} <a href="{% url 'authentication:login' %}"> {% endcomment %}
-        <button class="bg-primary-500 w-full py-2 rounded-lg hover:bg-primary-400 transition cursor-pointer">
-            Pesan
-        </button>
+        <a href="pinjamstadium"> <button class="bg-primary-500 w-full py-2 rounded-lg hover:bg-primary-400 transition cursor-pointer">
+            Pesan 
+        </button> ></a>
+        
      
       {% comment %} </a> {% endcomment %}
     </div>

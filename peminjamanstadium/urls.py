@@ -6,6 +6,6 @@ app_name = 'peminjamanstadium'
 urlpatterns = [
     path('', listPeminjaman, name='listPeminjaman'),
     path('pinjamstadium/', pinjamStadium, name='pinjamStadium'),
-    path('pilihwaktu/', pilihwaktu, name='pilih_waktu')
+    path('pilihwaktu/<str:chosen_stadium>/', pilihwaktu, name='pilih_waktu')
     
 ]

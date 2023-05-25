@@ -2,7 +2,16 @@
 {% load static %}
 
 {% block meta %}
-<title>Babadu | Login</title>
+<title>Beli Tiket</title>
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
 {% endblock meta %}
 
 {% block content %}
