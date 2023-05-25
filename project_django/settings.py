@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-3@5wx%(^*zl68l(o$^m-3%cvjv0g&mom1ra=oj5f048_al57s7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['basdat-b10.up.railway.app']
+ALLOWED_HOSTS = ['basdat-b10.up.railway.app','127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ['https://basdat-b10.up.railway.app']
 # Application definition
 

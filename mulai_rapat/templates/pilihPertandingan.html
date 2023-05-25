@@ -84,26 +84,24 @@ a:hover {
                         
                         <th>Tim Bertanding</th>
                         <th>Stadium</th>
-                        <th>Tanggal dan Waktu</th>
+                        <th>Tanggal dan Waktu Mulai</th>
+                        <th>Tanggal dan Waktu Berakhir</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     {% csrf_token %}
                     <tbody>
+
+                      {% for match in matches %}
                       <tr>
-                        <td>A vs B</td>
+                        <td>{{match.teams}}</td>
                        
-                        <td>Stadium GBK</td>
-                        <td>5 Juli 2023, 07.00 - 09.00</td>
-                        <td><a href="#" >Mulai Rapat</a></td>
+                        <td>{{match.nama_stadium}}</td>
+                        <td>{{match.start_datetime}}</td>
+                        <td>{{match.end_datetime}}</td>
+                        <td><a href="../rapatPertandingan/{{match.id_pertandingan}}" >Mulai Rapat</a></td>
                       </tr>
-                      <tr>
-                        <td>C vs D</td>
-                       
-                        <td>Stadium GBK</td>
-                        <td>7 Juli 2023, 13.00 - 15.00</td>
-                        <td><a href="#" >Mulai Rapat</a></td>
-                      </tr>
+                      {% endfor %} 
                     </tbody>
                   </table>
                 
