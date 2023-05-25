@@ -2,7 +2,16 @@
 {% load static %}
 
 {% block meta %}
-<title>Babadu | Login</title>
+<title>U-League | Manage Pertandingan</title>
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
 {% endblock meta %}
 
 {% block content %}
@@ -20,7 +29,7 @@
         </div>
     </div>
 </section>
-<h1 style="font-family:Mulish; font-size:20pt; color:black; text-align:center">Peristiwa Tim [Nama Tim]</h1>
+<h1 style="font-family:Mulish; font-size:20pt; color:black; text-align:center">Peristiwa Tim {{nama_tim}}</h1>
 <br>
 <table class="w-full text-sm text-left text-primary-500 dark:text-primary-400">
     <thead class="text-xs text-primary-500 uppercase bg-primary-50 dark:bg-primary-500 dark:text-primary-400">
@@ -34,46 +43,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                [Nama Pemain 1]
-            </th>
-            <td class="px-6 py-4">
-                [Peristiwa 1]
-            </td>
-        </tr>
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                [Nama Pemain 2]
-            </th>
-            <td class="px-6 py-4">
-                [Peristiwa 2]
-            </td>
-        </tr>
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                [Nama Pemain 3]
-            </th>
-            <td class="px-6 py-4">
-                [Peristiwa 3]
-            </td>
-        </tr>
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                [Nama Pemain 4]
-            </th>
-            <td class="px-6 py-4">
-                [Peristiwa 4]
-            </td>
-        </tr>
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                [Nama Pemain 5]
-            </th>
-            <td class="px-6 py-4">
-                [Peristiwa 5]
-            </td>
-        </tr>
+        {% for data in peristiwa_pertandingan %}
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{data.nama_depan}} {{data.nama_belakang}}</td>
+                <td class="px-6 py-4">{{data.jenis}}</td>
+            </tr>
+        {% endfor %}
     </tbody>
 </table>
 <br><br>

@@ -1,0 +1,245 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Babadu | Panitia</title>
+<title>Babadu | Panitia</title>
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
+
+<style>
+    #submit {
+        color: white;
+        font-family:Mulish;
+        margin: 15px;
+        padding: 10px 70px;
+        cursor: pointer;
+        background-color: #9a1220;
+        border: none;
+        border-radius: 20px;
+        text-align: center;
+    }
+    #submit:hover {
+        background-color: #890000;
+        text-align: center;
+    }
+    .error-message {
+        color: red;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .success-message {
+        color: greenyellow;
+        margin-top: 10px;
+        text-align: center;
+    }
+</style>
+
+{% endblock meta %}
+
+{% block content %}
+
+<section id="authentication-login" class="w-full xl:px-20 lg:px-10 sm:px-2 px-4 py-5 text-white">
+    <div class="flex-col items-center justify-center">
+        <section id="b01" class="w-full">
+            <div class="max-w-md mx-auto p-4">
+              <div class="text-start text-shark-500">
+                <h1 style="font-family:Mulish; font-size:15pt; color:bg-primary-500; text-align:center">Basis Data B10</h1>
+                <h1 style="font-family:Playfair Display; font-size:20pt; color:bg-primary-500; text-align:center">U-League Indonesian Universities Football Championship</h1>
+              </div>
+        </section>
+        <div class="w-full md:w-4/6 my-6 mx-auto h-auto  border-shark-500 rounded-lg">
+        </div>
+    </div>
+</section>
+<h1 style="font-family:Mulish; font-size:20pt; color:black; text-align:center">Pilih Peristiwa Tim</h1>
+<h2 style="font-family:Mulish; font-size:15pt; color:black; text-align:center">{{data.nama_tim}}</h2>
+<br>
+<div style="display: flex; justify-content: center;">
+    <form id="form-peristiwa" method="POST">
+    <table width="75%" class=" text-sm text-left text-primary-500 dark:text-primary-400">
+        <thead class="text-xs text-primary-500 uppercase bg-primary-50 dark:bg-primary-500 dark:text-primary-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Nama Pemain
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Peristiwa
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Waktu
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td>
+                    <select name="nama_pemain" id="nama_pemain1" class="font-medium" style="font-size: 14px; color: #000000; margin: 10px;; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff;">
+                        <option value="NonePemain" selected>None</option>
+                        {% for nama in data.nama_pemain %}
+                            <option value="{{nama.0}}">{{nama.1}} {{nama.2}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
+                    <select class="font-medium" style="font-size: 14px; color: #000000; margin: 10px;; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff;">
+                    <option value="NonePeristiwa">None</option>
+                    <option value="gol">Gol</option>
+                    <option value="assist">Assist</option>
+                    <option value="kartuKuning">Kartu Kuning</option>
+                    <option value="kartuMerah">Kartu Merah</option>
+                    </select>
+                </td>
+                <td>
+                    <input class="font-medium" style="font-size: 14px; color: #000000; margin: 10px;; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff;" type="datetime-local" id="waktu1" name="waktu">
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td>
+                    <select name="nama_pemain" id="nama_pemain1" class="font-medium" style="font-size: 14px; color: #000000; margin: 10px;; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff;">
+                        <option value="NonePemain" selected>None</option>
+                        {% for nama in data.nama_pemain %}
+                            <option value="{{nama.0}}">{{nama.1}} {{nama.2}}</option>
+                        {% endfor %}
+                    </select>  
+                </td>
+                <td>
+                    <select class="font-medium" style="font-size: 14px; color: #000000; margin: 10px;; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff;">
+                    <option value="NonePeristiwa">None</option>
+                    <option value="gol">Gol</option>
+                    <option value="assist">Assist</option>
+                    <option value="kartuKuning">Kartu Kuning</option>
+                    <option value="kartuMerah">Kartu Merah</option>
+                    </select>
+                </td>
+                <td>
+                    <input class="font-medium" style="font-size: 14px; color: #000000; margin: 10px;; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff;" type="datetime-local" id="waktu2" name="waktu">
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td>
+                    <select name="nama_pemain" id="nama_pemain1" class="font-medium" style="font-size: 14px; color: #000000; margin: 10px;; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff;">
+                        <option value="NonePemain" selected>None</option>
+                        {% for nama in data.nama_pemain %}
+                            <option value="{{nama.0}}">{{nama.1}} {{nama.2}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
+                    <select class="font-medium" style="font-size: 14px; color: #000000; margin: 10px;; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff;">
+                    <option value="NonePeristiwa">None</option>
+                    <option value="gol">Gol</option>
+                    <option value="assist">Assist</option>
+                    <option value="kartuKuning">Kartu Kuning</option>
+                    <option value="kartuMerah">Kartu Merah</option>
+                    </select>
+                </td>
+                <td>
+                    <input class="font-medium" style="font-size: 14px; color: #000000; margin: 10px;; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff;" type="datetime-local" id="waktu3" name="waktu">
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td>
+                    <select name="nama_pemain" id="nama_pemain1" class="font-medium" style="font-size: 14px; color: #000000; margin: 10px;; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff;">
+                        <option value="NonePemain" selected>None</option>
+                        {% for nama in data.nama_pemain %}
+                            <option value="{{nama.0}}">{{nama.1}} {{nama.2}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
+                    <select class="font-medium" style="font-size: 14px; color: #000000; margin: 10px;; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff;">
+                    <option value="NonePeristiwa">None</option>
+                    <option value="gol">Gol</option>
+                    <option value="assist">Assist</option>
+                    <option value="kartuKuning">Kartu Kuning</option>
+                    <option value="kartuMerah">Kartu Merah</option>
+                    </select>
+                </td>
+                <td>
+                    <input class="font-medium" style="font-size: 14px; color: #000000; margin: 10px;; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff;" type="datetime-local" id="waktu4" name="waktu">
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td>
+                    <select name="nama_pemain" id="nama_pemain1" class="font-medium" style="font-size: 14px; color: #000000; margin: 10px;; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff;">
+                        <option value="NonePemain" selected>None</option>
+                        {% for nama in data.nama_pemain %}
+                            <option value="{{nama.0}}">{{nama.1}} {{nama.2}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>
+                    <select class="font-medium" style="font-size: 14px; color: #000000; margin: 10px;; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff;">
+                    <option value="NonePeristiwa">None</option>
+                    <option value="gol">Gol</option>
+                    <option value="assist">Assist</option>
+                    <option value="kartuKuning">Kartu Kuning</option>
+                    <option value="kartuMerah">Kartu Merah</option>
+                    </select>
+                </td>
+                <td>
+                    <input class="font-medium" style="font-size: 14px; color: #000000; margin: 10px;; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; background-color: #fff;"  type="datetime-local" id="waktu5" name="waktu">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="Submit" id="submit">
+    </form>
+    <div class="message" id="message"></div>
+
+    <script>
+        $(document).on("submit", "#form-peristiwa", function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                url: "{% url 'mulaipertandingan:pilihPeristiwa' id_pertandingan=data.id_pertandingan nama_tim=data.nama_tim %}",
+                data: {
+                    pemain1: $("#nama_pemain1 option:selected").val(),
+                    pemain2: $("#nama_pemain2 option:selected").val(),
+                    pemain3: $("#nama_pemain3 option:selected").val(),
+                    pemain4: $("#nama_pemain4 option:selected").val(),
+                    pemain5: $("#nama_pemain5 option:selected").val(),
+                    peristiwa1: $("#peristiwa1 option:selected").val(),
+                    peristiwa2: $("#peristiwa2 option:selected").val(),
+                    peristiwa3: $("#peristiwa3 option:selected").val(),
+                    peristiwa4: $("#peristiwa4 option:selected").val(),
+                    peristiwa5: $("#peristiwa5 option:selected").val(),
+                    waktu1: $("#waktu1").val(),
+                    waktu2: $("#waktu2").val(),
+                    waktu3: $("#waktu3").val(),
+                    waktu4: $("#waktu4").val(),
+                    waktu5: $("#waktu5").val()
+                },
+                success: function(data) {
+                    if (data.success == 'true'){
+                        let htmlString = ``
+                        htmlString += `\n
+                        <div class="success-message">${data.message}</div>`
+                        document.getElementById("message").innerHTML = htmlString
+                        setTimeout(function () {
+                            document.location.href = `/listPeristiwa/${id_pertandingan}/`}, 1000);
+                    } else { 
+                        let htmlString = ``
+                        htmlString += `\n
+                        <div class="error-message">${data.message}</div>`
+                        document.getElementById("message").innerHTML = htmlString
+                    }
+                }
+            })
+            
+        });
+    </script>
+</div>
+
+
+{% endblock content %}

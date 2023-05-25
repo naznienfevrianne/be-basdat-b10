@@ -2,7 +2,16 @@
 {% load static %}
 
 {% block meta %}
-<title>Babadu | Login</title>
+<title>U-League | Manage Pertandingan</title>
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
 {% endblock meta %}
 
 {% block content %}
@@ -43,29 +52,39 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                A
-            </th>
-            <td class="px-6 py-4">
-                A VS B
-            </td>
-            <td class="px-6 py-4">
-                28 April 2023, 13:00
-            </td>
-            <td class="px-6 py-4">
-                A
-            </td>
-            <td class="px-6 py-4">
-                <button class="bg-primary-500 hover:bg-primary-400 text-white font-bold py-2 px-4 rounded">
-                    Lihat Peristiwa Tim 1
-                  </button>
-                  <button class="bg-primary-500 hover:bg-primary-400 text-white font-bold py-2 px-4 rounded">
-                    Lihat Peristiwa Tim 2
-                  </button>
-            </td>
-        </tr>
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        {% for data in pertandingan %}
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">A</td>
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ data.tim.0 }} vs {{ data.tim.1 }}</td>
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ data.start_datetime }}</td>
+                {% for key, value in pemenang.items %}
+                    {% if key == data.id_pertandingan %}
+                        <td>{{value}}</td>
+                    {% endif %}
+                {% endfor %}
+                <td>
+                {% now "Y-m-d" as todays_date %}
+
+                {% if todays_date > data.end_datetime|date:"Y-m-d" %}
+
+                    <a href="{% url 'managepertandingan:listPeristiwa' id_pertandingan=data.id_pertandingan nama_tim=data.tim.0 %}">
+                    <button class="bg-primary-500 hover:bg-primary-400 text-white font-bold py-2 px-4 rounded">
+                        Lihat Peristiwa Tim 1
+                    </button>
+                    <a href="{% url 'managepertandingan:listPeristiwa' id_pertandingan=data.id_pertandingan nama_tim=data.tim.1 %}">
+                    <button class="bg-primary-500 hover:bg-primary-400 text-white font-bold py-2 px-4 rounded">
+                        Lihat Peristiwa Tim 2
+                    </button>
+
+                    {% else %}
+                    <a href="{% url 'mulaipertandingan:pilihPeristiwa' id_pertandingan=data.id_pertandingan nama_tim=data.tim %}">
+                        <button class="bg-primary-500 hover:bg-primary-400 text-white font-bold py-2 px-4 rounded" >Mulai</button>
+                    </a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 A
             </th>
@@ -122,7 +141,7 @@
             <td class="px-6 py-4">
                 Belum Waktunya
             </td>
-        </tr>
+        </tr> -->
     </tbody>
 </table>
 <br><br>
@@ -134,12 +153,8 @@
         <button class="bg-primary-500 w-full py-2 rounded-lg hover:bg-primary-400 transition cursor-pointer">
             Finish
         </button>
-      {% comment %} </a> {% endcomment %}
-      
-      {% comment %} </a> {% endcomment %}
     </div>
 </section>
 <br><br>
-
 
 {% endblock content %}

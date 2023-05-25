@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Babadu | Panitia</title>
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
+{% endblock meta %}
+
+{% block content %}
+
+<section id="authentication-login" class="w-full xl:px-20 lg:px-10 sm:px-2 px-4 py-5 text-white">
+    <div class="flex-col items-center justify-center">
+        <section id="b01" class="w-full">
+            <div class="max-w-md mx-auto p-4">
+              <div class="text-start text-shark-500">
+                <h1 style="font-family:Mulish; font-size:15pt; color:bg-primary-500; text-align:center">Basis Data B10</h1>
+                <h1 style="font-family:Playfair Display; font-size:20pt; color:bg-primary-500; text-align:center">U-League Indonesian Universities Football Championship</h1>
+              </div>
+        </section>
+        <div class="w-full md:w-4/6 my-6 mx-auto h-auto  border-shark-500 rounded-lg">
+        </div>
+    </div>
+</section>
+<h1 style="font-family:Mulish; font-size:20pt; color:black; text-align:center">Pertandingan</h1>
+<h2 style="font-family:Mulish; font-size:15pt; color:black; text-align:center">Peristiwa Tim {{nama_tim}}</h2>
+<br>
+<div style="display: flex; justify-content: center;">
+    <table width="75%" class=" text-sm text-left text-primary-500 dark:text-primary-400">
+        <thead class="text-xs text-primary-500 uppercase bg-primary-50 dark:bg-primary-500 dark:text-primary-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Tim 1
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Tim 2
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Peristiwa
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{data.nama_tim.0}}
+                </td>
+                <td class="px-6 py-4">
+                    {{data.nama_tim.1}}
+                </td>
+                <td><a href="{% url 'mulaipertandingan:pilihPeristiwa' id_pertandingan=peristiwa.id_pertandingan nama_tim=peristiwa.nama_tim.0 %}">
+                    Masukkan Peristiwa Tim 1</a><br><br>
+                <a href="{% url 'mulaipertandingan:pilihPeristiwa' id_pertandingan=peristiwa.id_pertandingan nama_tim=peristiwa.nama_tim.1 %}">
+                    Masukkan Peristiwa Tim 2</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<br>
+<section id="buttons" class="w-1000">
+    <div style="display: flex; justify-content: center; margin-bottom: 50px;" class="max-w-lg mx-auto space-y-2 text-white text-lg font-semibold">
+      {% comment %} <a href="{% url 'managepertandingan:listPertandingan' %}"> {% endcomment %}
+        <button style="width: 100px; height: fit-content;" class="bg-primary-500 py-2 rounded-lg hover:bg-primary-400 transition cursor-pointer">
+            Submit
+        </button>
+<br><br>
+
+
+{% endblock content %}
