@@ -28,5 +28,6 @@ urlpatterns = [
     path('peminjamanstadium/', include('peminjamanstadium.urls')),
     path('list_pertandingan/', include('list_pertandingan.urls')),
     path('rapat/', include('rapat.urls')),
-    path('mulaipertandingan/', include('mulaipertandingan.urls'))
+    path('mulaipertandingan/', include('mulaipertandingan.urls')),
+    path('pembelian_tiket/', include('pembelian_tiket.urls')),
 ]
