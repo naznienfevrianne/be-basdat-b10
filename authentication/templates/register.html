@@ -7,10 +7,11 @@
 <link href='https://fonts.googleapis.com/css?family=Mulish' rel='stylesheet'>
 <style>
 </style>
+{% include 'navbarOri.html' %}
 {% endblock meta %}
 
 {% block content %}
-{% include 'navbarOri.html' %}
+
 <section id="authentication" class="h-screen w-full xl:px-20 lg:px-10 sm:px-2 px-4">
     <div class="h-full flex flex-col gap-8 items-center justify-center text-white text-center">
         <section id="b01" class="w-full">
@@ -22,7 +23,6 @@
         </section>
         <h1 style="font-family:Mulish; font-size:15pt; color:black; text-align:center">Choose your Role</h1>
         <section id="buttons" class="w-full">
-            
             <div class="max-w-lg mx-auto space-y-2 text-white text-lg font-semibold">
               <a href="{% url 'authentication:registerManajer' %}">
                 <button class="bg-primary-500 w-full py-2 rounded-lg hover:bg-primary-400 transition cursor-pointer">

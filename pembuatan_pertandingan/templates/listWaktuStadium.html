@@ -1,0 +1,98 @@
+{% extends 'base1.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Babadu | Login</title>
+{% endblock meta %}
+
+{% block content %}
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        color: black;
+        text-align: center;
+        padding: 8px;
+        
+    }
+    tr:nth-child(even) {background-color: #f2f2f2;}
+    th {
+        background-color: #922724;
+        color: white;
+        
+    }
+    button {
+        background-color: #922724;
+        color: white;
+        padding: 6px 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: black;
+    }
+    .container {
+        padding: 16px;
+    }
+    .group {
+        margin-top: 16px;
+    }
+    /* Center align the heading */
+    h2{
+        color: #922724;
+        text-align: center;
+        font-family: Playfair Display;
+        font-size: 20pt;
+    }
+</style>
+</head>
+<body>
+
+<section id="authentication-login" class="h-screen w-full xl:px-20 lg:px-10 sm:px-2 px-4 py-16 text-white">
+    <div class="h-full flex flex-col items-center justify-center">
+        <section id="b01" class="w-full">
+            <div class="max-w-md mx-auto p-4">
+              <div class="text-start text-shark-500">
+                <h1 style="font-family:Mulish; font-size:15pt; color:bg-primary-500; text-align:center">Basis Data B10</h1>
+                <h1 style="font-family:Playfair Display; font-size:20pt; color:bg-primary-500; text-align:center">U-League Indonesian Universities Football Championship</h1>
+              </div>
+        </section>
+        <div class="w-full md:w-4/6 my-6 mx-auto h-auto p-4 border border-shark-500 rounded-lg">
+            <form method="POST" action="" class="w-full flex flex-col gap-4">
+                <h2>
+                    List Waktu Stadium <th>[Nama Stadium]
+                </h2>
+                <hr class="border-shark-400">
+                {% csrf_token %}
+            </head>
+            <body>
+              
+                <table>
+                    <tr>
+                        <th>List Waktu</th>
+                        <th>Action</th>
+                        
+                    </tr>
+                    <tr>
+                        <td>11.00 - 13.00</td>
+                        <td>Dipesan</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>07.00 - 09.00</td>
+                        <td><button onclick="next()">Next</button></td>
+                    </tr>
+                </table>
+            </body>
+            </html>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

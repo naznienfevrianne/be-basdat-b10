@@ -2,7 +2,16 @@
 {% load static %}
 
 {% block meta %}
-<title>Babadu | Login</title>
+<title>U_League | Dashboard</title>
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
 {% endblock meta %}
 
 {% block content %}
@@ -26,65 +35,61 @@
                 <section id="auth-login-input" class="space-y-2">
                     <div class="flex flex-col gap-2">
                         <div class="text-black font-semibold">
-                            Nama Depan: {nama_depan}
+                            Nama Depan: {{nama_depan}}
                         </div>
                        
                     </div>
                     <div class="flex flex-col gap-2">
                         <div class="text-black font-semibold">
-                            Nama Belakang: {nama_belakang}
+                            Nama Belakang: {{nama_belakang}}
                         </div>
                 
                     </div>
                     <div class="flex flex-col gap-2">
                         <div class="text-black font-semibold">
-                            Nomor HP: {nomor_hp}
+                            Nomor HP: {{nomor_hp}}
                         </div>
                         
                     </div>
                     <div class="flex flex-col gap-2">
                         <div class="text-black font-semibold">
-                            Email: {email}
+                            Email: {{email}}
                         </div>
                         
                     </div>
                     <div class="flex flex-col gap-2">
                         <div class="text-black font-semibold">
-                            Alamat: {alamat}
+                            Alamat: {{alamat}}
                         </div>
                         
                     </div>
                     <div class="flex flex-col gap-2">
                         <div class="text-black font-semibold">
-                            Status: {status}
-                        </div>
-                        
+                            Status: {{status}}
+                        </div>     
                     </div>
                 </section>       
         </div>
         <h1 style="font-family:Mulish; font-size:20pt; color:#922B21; text-align:center; font-weight:bold">Daftar Pertandingan yang akan Datang</h1>
         <br>
         <section id="b01" class="w-full">
+            {% if team == 'Not exist' %}
+            <h1 style="font-family:Mulish; font-size:20pt; color:black; text-align:center">Belum Memesan Pertandingan</h1>
+            {% else %}
+            {% for match in pertandingan %}
             <div class="max-w-md mx-auto p-4 border border-shark-900 rounded-lg">
                 <div class="flex flex-row items-center justify-start gap-4">
                     <div class="text-start text-shark-400">
-                        <h2 class="text-grey font-semibold">~Nama Pertandingan~</h2>
-                        <h4 class="text-grey">=ID Pertandingan=</h4>
+                        <h2 class="text-grey font-semibold">Nama Stadium: {{match.nama}}</h2>
+                        <h4 class="text-grey">Waktu Mulai: {{match.start_datetime}}</h4>
+                        <h4 class="text-grey">Waktu Selesai: {{match.end_datetime}}</h4>
                     </div>
                 </div>
             </div>
+            {% endfor %}
+            {% endif %}
         </section>
         <br>
-        <section id="b01" class="w-full">
-            <div class="max-w-md mx-auto p-4 border border-shark-900 rounded-lg">
-                <div class="flex flex-row items-center justify-start gap-4">
-                    <div class="text-start text-shark-400">
-                        <h2 class="text-grey font-semibold">~Nama Pertandingan~</h2>
-                        <h4 class="text-grey">=ID Pertandingan=</h4>
-                    </div>
-                </div>
-            </div>
-        </section>
         <br>
     </div>
 </section>

@@ -2,6 +2,17 @@
 {% load static %}
 
 {% block meta %}
+
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
+
 <head>
     <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
     <title> History Rapat </title>
@@ -59,15 +70,17 @@
             </tr>
         </thead>
         <tbody>
+            {% for rapat in history_rapat %}
             <tr>
-                <th>[Rapat Tim]</th>
-                <th>[Nama Panitia]</th>
-                <th>[Stadium]</th>
-                <th>[Tanggal dan Waktu]</th>
-                <th><a class="link" href="https://example.com"><u>Lihat Catatan Rapat</u></a></th>
+                <th>{{rapat.teams}}</th>
+                <th>{{rapat.nama_panitia}}</th>
+                <th>{{rapat.nama_stadium}}</th>
+                <th>{{rapat.datetime}}</th>
+                <th>{{rapat.isi_rapat}}</th>
             </tr>
             <tr>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 </body>

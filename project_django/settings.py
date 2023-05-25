@@ -46,7 +46,10 @@ INSTALLED_APPS = [
     'managepertandingan',
     'peminjamanstadium',
     'list_pertandingan',
-    'rapat'
+    'rapat',
+    'pembuatan_pertandingan',
+    'mulai_rapat',
+    'pembelian_tiket',
 ]
 
 MIDDLEWARE = [
@@ -86,8 +89,15 @@ WSGI_APPLICATION = 'project_django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'OPTIONS' : {
+            'options': '-c search_path=public'
+        },
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'TK4BasisDataB10',
+        'HOST':'db.wynzxzgkhoqiawmrnipv.supabase.co',
+        'PORT':'5432'
     }
 }
 

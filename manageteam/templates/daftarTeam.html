@@ -2,7 +2,16 @@
 {% load static %}
 
 {% block meta %}
-<title>Babadu | Login</title>
+<title>U-League | Daftar Tim</title>
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
 {% endblock meta %}
 
 {% block content %}
@@ -28,30 +37,22 @@
                         <div class="text-black font-semibold">
                             Nama Tim
                         </div>
-                        <div>
-                            <div class = "w-full px-4 py-4 border border-shark-500 bg-transparent outline-none focus:border-primary-400 rounded-md transition text-white">
-                                {{ login_form.nama}}
-                            </div>
-                        </div>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="nama_tim" type="text" placeholder="Nama Tim">
                     </div>
                     <div class="flex flex-col gap-2">
                         <div class="text-black font-semibold">
                             Nama Universitas
                         </div>
-                        <div>
-                            <div class = "w-full px-4 py-4 border border-shark-500 bg-transparent outline-none focus:border-primary-400 rounded-md transition text-white"> 
-                                {{ login_form.email }}
-                            </div>
-                        </div>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="universitas" type="text" placeholder="Universitas">
                     </div>
                 </section>
                 <section id="auth-login-submit" class="space-y-1 mt-">
+                    
                     <button
                         class="bg-primary-500 w-full py-2 rounded-lg hover:bg-primary-400 transition cursor-pointer text-white font-semibold"
                         type="submit" value="Login">
                         Register
                     </button>
-                    
                 </section>
             </form>
 

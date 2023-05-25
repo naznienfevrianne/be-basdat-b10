@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>List Pertandingan</title>
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
+{% endblock meta %}
+
+{% block content %}
+
+<section id="authentication-login" class="w-full xl:px-20 lg:px-10 sm:px-2 px-4 py-5 text-white">
+    <div class="flex-col items-center justify-center">
+        <section id="b01" class="w-full">
+            <div class="max-w-md mx-auto p-4">
+              <div class="text-start text-shark-500">
+                <h1 style="font-family:Mulish; font-size:15pt; color:bg-primary-500; text-align:center">Basis Data B10</h1>
+                <h1 style="font-family:Playfair Display; font-size:20pt; color:bg-primary-500; text-align:center">U-League Indonesian Universities Football Championship</h1>
+              </div>
+        </section>
+        <div class="w-full md:w-4/6 my-6 mx-auto h-auto  border-shark-500 rounded-lg">
+        </div>
+    </div>
+</section>
+<h1 style="font-family:Mulish; font-size:20pt; color:black; text-align:center">List Pertandingan</h1>
+<br>
+<form method="POST" action="">
+    {% csrf_token %}
+<div style="display: flex; justify-content: center; margin-bottom: 50px;">
+    <table width="50%" class=" text-sm text-left text-primary-500 dark:text-primary-400">
+        <thead class="text-xs text-primary-500 uppercase bg-primary-50 dark:bg-primary-500 dark:text-primary-400">
+            <tr>
+                <th style="text-align: center;" scope="col" class="px-6 py-3">
+                    Tim 1
+                </th>
+                <th style="text-align: center;" scope="col" class="px-6 py-3">
+                    Tim 2
+                </th>
+                <th style="text-align: center;" scope="col" class="px-6 py-3">
+                    Pilih Pertandingan
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in schedules %}
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th style="text-align: center; font-weight: bold;"class="px-6 py-4">
+                    {{s.tim1}}
+                </th>
+                <td style="text-align: center; font-weight: bold;" class="px-6 py-4">
+                    {{s.tim2}}
+                </td>
+                <input type="text" style="display: none;" value="{{s.id}}" name="match" id="match">
+                <td style="text-align: center;" class="px-6 py-4">
+                    <button class="bg-primary-500 hover:bg-primary-400 text-white font-bold py-2 px-4 rounded" type="submit">
+                        Pilih
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</form>
+
+
+{% endblock content %}

@@ -8,7 +8,6 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('register/manajer/', registerManajer, name='registerManajer'),
     path('register/panitia/', registerPanitia, name='registerPanitia'),
-    path('register/penonton/', registerPenonton, name='registerPenonton')
-
-    
+    path('register/penonton/', registerPenonton, name='registerPenonton'),
+    path('logout/', logout, name='logout')
 ]

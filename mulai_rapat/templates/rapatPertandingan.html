@@ -1,0 +1,85 @@
+{% extends 'base1.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Babadu | Login</title>
+{% endblock meta %}
+
+{% block content %}
+<head>
+	<title>Daftar Pertandingan</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+        
+  label {
+    display: block;
+    margin-bottom: 5px;
+    
+    color: black;
+  }
+  
+  input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  input[type="submit"] {
+    display: inline-block;
+    margin: 0 auto;
+    background-color: #922724;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  input[type="submit"]:hover {
+    background-color: black;
+  }
+  h2 {
+    color: #922724;
+    text-align: center;
+			font-family: Playfair Display;
+            font-size: 20pt;
+		}
+	</style>
+</head>
+<body>
+    <section id="authentication-login" class="h-screen w-full xl:px-20 lg:px-10 sm:px-2 px-4 py-16 text-white">
+        <div class="h-full flex flex-col items-center justify-center">
+            <section id="b01" class="w-full">
+                <div class="max-w-md mx-auto p-4">
+                  <div class="text-start text-shark-500">
+                    <h1 style="font-family:Mulish; font-size:15pt; color:bg-primary-500; text-align:center">Basis Data B10</h1>
+                    <h1 style="font-family:Playfair Display; font-size:20pt; color:bg-primary-500; text-align:center">U-League Indonesian Universities Football Championship</h1>
+        </div>
+    </section>
+    <div class="w-full md:w-4/6 my-6 mx-auto h-auto p-4 border border-shark-500 rounded-lg">
+        <form method="POST" action="" class="w-full flex flex-col gap-4">
+                   
+                    
+            {% csrf_token %}
+            <section id="auth-login-input" class="space-y-2">
+                <div class="flex flex-col gap-2">
+                                
+                    <h2>Rapat Pertandingan [?] vs [?]</h2>
+                    <hr class="border-shark-400">
+                    <label for="isi-rapat">Isi Rapat:</label>
+                    <textarea id="isi-rapat" name="isi-rapat" rows="10" cols="30"></textarea>
+                    <input type="submit" value="Submit">
+                </div>
+            <section>   
+                    
+         </form>
+     </div>
+              
+</body>
+
+
+{% endblock content %}

@@ -7,10 +7,20 @@
 <link href='https://fonts.googleapis.com/css?family=Mulish' rel='stylesheet'>
 <style>
 </style>
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
 {% endblock meta %}
 
 {% block content %}
-{% include 'navbarOri.html' %}
+
+{% if username == 'not found' %}
 <section id="authentication" class="h-screen w-full xl:px-20 lg:px-10 sm:px-2 px-4">
     <div class="h-full flex flex-col gap-8 items-center justify-center text-white text-center">
         <section id="b01" class="w-full">
@@ -44,5 +54,22 @@
         <section class="h-4" />
     </div>
 </section>
+{% else %}
+<section id="authentication" class="h-screen w-full xl:px-20 lg:px-10 sm:px-2 px-4">
+  <div class="h-full flex flex-col gap-8 items-center justify-center text-white text-center">
+      <section id="b01" class="w-full">
+          <div class="max-w-md mx-auto p-4">
+            <div class="text-start text-shark-500">
+              <h1 style="font-family:Mulish; font-size:15pt; color:bg-primary-500; text-align:center">Basis Data B10</h1>
+              <h1 style="font-family:Playfair Display; font-size:20pt; color:bg-primary-500; text-align:center">U-League Indonesian Universities Football Championship</h1>
+              <br>
+              <h1 style="font-family:Playfair Display; font-size:18pt; color:bg-primary-500; text-align:center">Welcome, {{username}}!</h1>
+            </div>
+      </section>
+      <section class="h-4" />
+  </div>
+</section>
+{% endif %}
+
 
 {% endblock content %}

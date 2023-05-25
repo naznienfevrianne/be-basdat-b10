@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Pembelian Tiket</title>
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
+{% endblock meta %}
+
+{% block content %}
+<section id="authentication-login" class="w-full xl:px-20 lg:px-10 sm:px-2 px-4 py-5 text-white">
+    <div class="flex-col items-center justify-center">
+        <section id="b01" class="w-full">
+            <div class="max-w-md mx-auto p-4">
+              <div class="text-start text-shark-500">
+                <h1 style="font-family:Mulish; font-size:15pt; color:bg-primary-500; text-align:center">Basis Data B10</h1>
+                <h1 style="font-family:Playfair Display; font-size:20pt; color:bg-primary-500; text-align:center">U-League Indonesian Universities Football Championship</h1>
+              </div>
+        </section>
+        <div class="w-full md:w-4/6 my-6 mx-auto h-auto  border-shark-500 rounded-lg">
+        </div>
+    </div>
+</section>
+        <div class="w-full md:w-4/6 my-6 mx-auto h-auto p-4 border border-shark-500 rounded-lg">
+            <form method="POST" action="{% url 'pembelian_tiket:pilihStadium'%}" class="w-full flex flex-col gap-4">
+                <div class="text-2xl font-semibold text-primary-500 text-center">
+                    Pembelian Tiket
+                </div>
+                <hr class="border-shark-400">
+                {% csrf_token %}
+                <section id="auth-login-input" class="space-y-2">
+                    <div class="flex flex-col gap-2">
+                        <div class="text-black font-semibold">
+                            Pilih Stadium
+                        </div>
+                        <select id="chosen_stadium" name="chosen_stadium" class="block w-full p-2 mb-6 text-sm text-primary-500 border border-white rounded-lg bg-white focus:ring-primary-400 focus:border-primary-400 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400">
+                        <option selected >Pilih Stadium yang diinginkan</option>
+                        {% for s in stadium %}
+                        <option value="{{ s.nama }}" name="chosen_stadium">{{ s.nama }}</option>
+                        {% endfor %}
+                        </select>  
+                    </div>
+                    <style >
+                        /* Style the calendar input */
+                        input[type="date"] {
+                          border-radius: 10px; /* Rounded edges */
+                          color: #a22a2a; /* Dark text */
+                          padding: 8px; /* Add some padding to the input field */
+                          border-color: black;
+                          border-width: 0.5px;
+                          font-size:small;
+                        }
+                    </style>
+                    <div class="flex flex-col gap-2">
+                        <div class="text-black font-semibold">
+                            Pilih Tanggal
+                        </div>
+                        <input type="date" id="date" name="date">
+                    </div>
+                </section>
+                <section id="auth-login-submit" class="space-y-1 mt-">
+                    <button
+                        class="bg-primary-500 w-full py-2 rounded-lg hover:bg-primary-400 transition cursor-pointer text-white font-semibold"
+                        type="submit" value="Login">
+                        Submit
+                    </button>
+    
+                </section>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

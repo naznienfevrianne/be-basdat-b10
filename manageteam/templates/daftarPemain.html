@@ -2,7 +2,16 @@
 {% load static %}
 
 {% block meta %}
-<title>Babadu | Login</title>
+<title>U-League | Daftar Pemain</title>
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
 {% endblock meta %}
 
 {% block content %}
@@ -27,14 +36,11 @@
                         <div class="text-black font-semibold">
                             Pemain yang mau didaftarkan
                         </div>
-                        <select id="small" class="block w-full p-2 mb-6 text-sm text-primary-500 border border-white rounded-lg bg-white focus:ring-primary-400 focus:border-primary-400 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400">
-                        <option selected>Choose a player</option>
-                        <option value="US">Andi</option>
-                        <option value="CA">Budi</option>
-                        <option value="FR">Charlie</option>
+                        <select id="pemain_picked" name='pemain_picked' class="block w-full p-2 mb-6 text-sm text-primary-500 border border-white rounded-lg bg-white focus:ring-primary-400 focus:border-primary-400 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-primary-500 dark:focus:ring-primary-400 dark:focus:border-primary-400">
+                        {% for pemain in players %}
+                        <option value="{{pemain.id_pemain}}">{{pemain.nama_depan}} {{pemain.nama_depan}} - {{pemain.posisi}} - {{pemain.jenjang}}</option>
+                        {% endfor %}
                         </select>  
-  
-
                     </div>
                 </section>
                 <section id="auth-login-submit" class="space-y-1 mt-">

@@ -2,6 +2,17 @@
 {% load static %}
 
 {% block meta %}
+
+{% if username == 'not found' %}
+{% include 'navbarOri.html' %}
+{% elif member_type == 'penonton' %}
+{% include 'navbarPenonton.html' %}
+{% elif member_type == 'panitia' %}
+{% include 'navbarPanitia.html' %}
+{% elif member_type == 'manajer' %}
+{% include 'navbarManajer.html' %}
+{% endif %}
+
 <head>
     <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
     <title> List Pertandingan </title>
@@ -54,16 +65,13 @@
             </tr>
         </thead>
         <tbody>
+            {% for p in pertandingan %}
             <tr>
-                <th>[Nama Tim Bertanding]</th>
-                <th>[Nama Stadium]</th>
-                <th>[Tanggal dan Waktu]</th>
+                <th>{{p.teams}}</th>
+                <th>{{p.nama}}</th>
+                <th>{{p.start_datetime}}</th>
             </tr>
-            <tr>
-                <th>[Nama Tim Bertanding]</th>
-                <th>[Nama Stadium]</th>
-                <th>[Tanggal dan Waktu]</th>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
 </body>

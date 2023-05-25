@@ -4,9 +4,5 @@ from dashboard.views import *
 app_name = 'dashboard'
 
 urlpatterns = [
-    path('manajer/', dashboardManajer, name='dashboardManajer'),
-    path('panitia/', dashboardPanitia, name='dashboardPanitia'),
-    path('penonton/', dashboardPenonton, name='dashboardPenonton')
-
-    
+    path('', dashboard, name='show_dashboard'),
 ]

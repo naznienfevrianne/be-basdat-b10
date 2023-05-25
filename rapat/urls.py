@@ -4,5 +4,5 @@ from rapat.views import *
 app_name = 'rapat'
 
 urlpatterns = [
-    path('history/', history_rapat, name='list_pertandingan_penonton')
+    path('history/', history_rapat, name='history_rapat')
 ]
