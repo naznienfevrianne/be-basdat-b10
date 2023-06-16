@@ -30,4 +30,6 @@ urlpatterns = [
     path('rapat/', include('rapat.urls')),
     path('mulaipertandingan/', include('mulaipertandingan.urls')),
     path('pembelian_tiket/', include('pembelian_tiket.urls')),
+    path('mulai_rapat/', include('mulai_rapat.urls')),
+    
 ]
