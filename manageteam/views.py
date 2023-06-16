@@ -227,6 +227,7 @@ def makeCaptainPemain(request, id_pemain, nama_tim):
     """
     cursor.execute(query)
     res = parse(cursor)
+    
     if len(res) == 1:
         captain = res[0]
         id_captain = str(captain['id_pemain'])
@@ -244,6 +245,7 @@ def makeCaptainPemain(request, id_pemain, nama_tim):
         response = HttpResponseRedirect(reverse('manageteam:viewTeam'))
         return response
     else:
+        id_pemain = str(id_pemain)
         query3 = """
         UPDATE PEMAIN
         SET is_captain = True
