@@ -246,7 +246,7 @@ def makeCaptainPemain(request, id_pemain, nama_tim):
         return response
     else:
         id_pemain = str(id_pemain)
-        query3 = """
+        query3 = f"""
         UPDATE PEMAIN
         SET is_captain = True
         WHERE id_pemain = '{id_pemain}';
